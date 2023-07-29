@@ -13,7 +13,6 @@ function reloding () {
 
 function checing (n) {
     if (holes[n].className.includes('hole_has-mole')) {
-        console.log('hi');
         dead.innerHTML++; 
     } else {
         lost.innerHTML++; 
