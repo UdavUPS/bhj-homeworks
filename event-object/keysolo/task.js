@@ -17,6 +17,23 @@ class Game {
   }
 
   registerEvents() {
+    const answer = document.querySelectorAll('.symbol');
+    let checkLetter = document.querySelector('.symbol_current');
+    //const letters = [];
+
+    window.onkeydown = () => {
+      if (event.keyCode > 64 && event.keyCode < 90) {
+/*       console.log(event.key);
+      letters.push(event.key);
+      console.log(letters); */
+      if (checkLetter.innerHTML == event.key || checkLetter.innerHTML.toUpperCase() == event.key) {
+        this.success();
+        checkLetter = document.querySelector('.symbol_current');
+      } else {
+        this.fail();
+      }
+    }
+  }
     /*
       TODO:
       Написать обработчик события, который откликается
