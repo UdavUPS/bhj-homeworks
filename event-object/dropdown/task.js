@@ -24,5 +24,11 @@ function listActive() {
 but.addEventListener('click', listActive);
 
 for (let i = 0; i < linkNams.length; i++) {
-    linkNams[i].addEventListener('click', () => chooseTitle(i));
+    
+    linkNams[i].addEventListener('click', (e) => {
+        console.log(i);
+        chooseTitle(i);
+        e.preventDefault();
+        dropdownList.classList.remove ('dropdown__list_active');
+    });
 }
