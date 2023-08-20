@@ -3,9 +3,9 @@ const taskInput = document.getElementById('task__input');
 const but = document.getElementById('tasks__add');
 const input = document.getElementById('task__input');
 let remBats = Array.from(document.querySelectorAll('.task__remove'));
-console.log(remBats);
+//console.log(remBats);
 
-function delFun(){
+/* function delFun(){
     for (let i = 0; i < remBats.length; i++) {
         remBats[i].addEventListener('click', (event) => {
             //event.preventDefault();
@@ -13,7 +13,7 @@ function delFun(){
             
         })
     }
-}
+} */
 
 function addTask (taskText) {
     let taskElementSell = document.createElement ('div');
@@ -31,14 +31,14 @@ function addTask (taskText) {
     remBats = Array.from(document.querySelectorAll('.task__remove'));
     input.value = '';
     console.log(remBats);
-    delFun()
+    //delFun()
 }
 
 function removeTask (num) {
     let mas = Array.from(document.querySelectorAll('.task'));
     mas[num].remove();
     remBats = Array.from(document.querySelectorAll('.task__remove'));
-    delFun()
+    //delFun()
 }
 
 
@@ -47,8 +47,20 @@ but.addEventListener('click', (event) => {
     addTask (input.value);
 })
 
+//addTask ('asdsadasd');
+//remBats = Array.from(document.querySelectorAll('.task__remove'));
 
-delFun();
+//console.log(tasksList.children[i].children[1]);
+
+for (let i = 0; i < remBats.length; i++) {
+    tasksList.children[i].children[1].addEventListener('click', (event) => {
+        event.preventDefault();
+        removeTask (i);
+    })
+}
+
+
+//delFun();
 
 
 /* 
