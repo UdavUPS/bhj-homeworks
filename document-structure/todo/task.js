@@ -2,18 +2,7 @@ const tasksList = document.getElementById('tasks__list');
 const taskInput = document.getElementById('task__input');
 const but = document.getElementById('tasks__add');
 const input = document.getElementById('task__input');
-let remBats = Array.from(document.querySelectorAll('.task__remove'));
-//console.log(remBats);
 
-/* function delFun(){
-    for (let i = 0; i < remBats.length; i++) {
-        remBats[i].addEventListener('click', (event) => {
-            //event.preventDefault();
-            console.log(i);
-            
-        })
-    }
-} */
 
 function addTask (taskText) {
     let taskElementSell = document.createElement ('div');
@@ -28,59 +17,18 @@ function addTask (taskText) {
     taskElementSell.appendChild(taskElement);
     taskElementSell.appendChild(removeElement);
     tasksList.appendChild(taskElementSell);
-    remBats = Array.from(document.querySelectorAll('.task__remove'));
     input.value = '';
-    console.log(remBats);
-    //delFun()
 }
-
-function removeTask (num) {
-    let mas = Array.from(document.querySelectorAll('.task'));
-    mas[num].remove();
-    remBats = Array.from(document.querySelectorAll('.task__remove'));
-    //delFun()
-}
-
 
 but.addEventListener('click', (event) => {
     event.preventDefault();
     addTask (input.value);
 })
 
-//addTask ('asdsadasd');
-//remBats = Array.from(document.querySelectorAll('.task__remove'));
-
-//console.log(tasksList.children[i].children[1]);
-
-for (let i = 0; i < remBats.length; i++) {
-    tasksList.children[i].children[1].addEventListener('click', (event) => {
-        event.preventDefault();
-        removeTask (i);
-    })
-}
-
-
-//delFun();
-
-
-/* 
-a.addEventListener('click', () => console.log('Привет'))
-
-for (let i = 0; i < remBats.length; i++) {
-    remBats[i].addEventListener('click', (event) => {
-        event.preventDefault();
-        removeTask (i);
-    })
-} */
-
-/* tasksList.addEventListener('click', () => {
-    for (let i = 0; i < remBats.length; i++) {
-        remBats[i].addEventListener('click', (event) => {
-            event.preventDefault();
-            removeTask (i);
-        })
+tasksList.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (event.target.classList.value == 'task__remove') {
+        event.target.parentElement.remove();
     }
-}) */
-
-
+})
 
