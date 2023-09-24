@@ -21,11 +21,8 @@ function addToCart(dataId, img, productCount) {
     cart.appendChild(product);
 }
 
-//product[0].children[2].children[0].children[1].children[1].innerHTML = 20;
 
-/* function correctValue(productNum, value) {
-    product[productNum].children[2].children[0].children[1].children[1].innerHTML = value;
-} */
+
 
 for (let i=0; i<product.length; i++) {
     product[i].children[2].children[0].children[1].children[0].addEventListener('click', () => {
@@ -41,35 +38,27 @@ for (let i=0; i<product.length; i++) {
     })
 }
 
+
 for (let i = 0; i < product.length; i++) {
     product[i].children[2].children[0].children[2].addEventListener('click', () => {
-        if (cart.children.length > 0) {
-            for (let j = 0; j < cart.children.length; j++) {
-                if (cart.children[j].getAttribute('data-id') == product[i].getAttribute('data-id')){
-                    cart.children[j].children[1].innerHTML = parseInt(cart.children[j].children[1].innerHTML) + parseInt(product[i].children[2].children[0].children[1].children[1].innerHTML);
-                } else {
-                    let dataId = product[i].getAttribute('data-id');
-                    let img = product[i].children[1].getAttribute('src');
-                    let productCount = product[i].children[2].children[0].children[1].children[1].innerHTML;
-                    addToCart(dataId, img, productCount)
-                }
-            }
-        } else {
-            let dataId = product[i].getAttribute('data-id');
-            let img = product[i].children[1].getAttribute('src');
-            let productCount = product[i].children[2].children[0].children[1].children[1].innerHTML;
-            addToCart(dataId, img, productCount)
-        }
-        
-
-
-
-
-
-
-/*         let dataId = product[i].getAttribute('data-id');
+        let dataId = product[i].getAttribute('data-id');
         let img = product[i].children[1].getAttribute('src');
         let productCount = product[i].children[2].children[0].children[1].children[1].innerHTML;
-        addToCart(dataId, img, productCount) */
-    })
+        let status = false;
+
+    if (cart.children.length == 0) {
+        addToCart(dataId, img, productCount);
+    } else {
+        for (let j = 0; j < cart.children.length; j++) {
+            if (cart.children[j].getAttribute('data-id') == product[i].getAttribute('data-id')){
+                status = true;
+                cart.children[j].children[1].innerHTML = parseInt(cart.children[j].children[1].innerHTML) + parseInt(product[i].children[2].children[0].children[1].children[1].innerHTML);
+                }
+        }
+
+        if (status == false) {
+            addToCart(dataId, img, productCount);
+        }
+    }
+})
 }
