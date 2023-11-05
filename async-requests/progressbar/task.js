@@ -6,15 +6,37 @@ const formData = new FormData(form);
 
 xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload', true);
 
-//formData.append("userfile", fileInputElement.files[0]);
 
-xhr.addEventListener('readystatechange', () => {
+form.addEventListener('submit', (e) => {
+    e.preventDefault;
     progress.value = xhr.readyState;
+
+    xhr.addEventListener('readystatechange', () => {
+        if (xhr.readyState === xhr.DONE) {
+            
+        }
+    })
+
+    //xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload', true);
+
+
+    const formData = new FormData(form);
+    xhr.send(formData);
 })
 
 
+//xhr.send(formData);
 
-but.addEventListener('click', () => {
+/* formData.append("userfile", 333);
+
+xhr.addEventListener('readystatechange', () => {
+    progress.value = xhr.readyState;
+    xhr.send(formData);
+}) */
+
+
+
+/* but.addEventListener('click', () => {
     xhr.send(formData);
 })
 

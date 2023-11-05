@@ -15,7 +15,7 @@ xhr.addEventListener ('readystatechange', () => {
             masVal.push(variable);
         };
         masVal.forEach((elem) => {
-            elementCreate (masXHR[elem].CharCode, masXHR[elem].Value, 'руб.');
+            elementCreate (masXHR[elem].CharCode, Math.round(masXHR[elem].Value), 'руб.');
         })
     }
 })
