@@ -7,7 +7,19 @@ const formData = new FormData(form);
 xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload', true);
 
 
-form.addEventListener('submit', (e) => {
+xhr.onprogress = () => {
+    //e.preventDefault;
+    progress.value = xhr.readyState;
+  };
+
+  but.addEventListener('click', (e) => {
+    e.preventDefault;
+    xhr.send(formData);
+  })
+
+
+
+/* form.addEventListener('submit', (e) => {
     e.preventDefault;
     progress.value = xhr.readyState;
 
@@ -23,7 +35,7 @@ form.addEventListener('submit', (e) => {
     const formData = new FormData(form);
     xhr.send(formData);
 })
-
+ */
 
 //xhr.send(formData);
 
