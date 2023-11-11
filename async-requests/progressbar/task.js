@@ -18,6 +18,30 @@ xhr.onprogress = () => {
   })
 
 
+  
+
+
+/* form.addEventListener('submit', (e) => {
+    e.preventDefault;
+    xhr.upload.addEventListener('onloadstart', ()=>{
+        progress.value = 0;
+    });
+
+    xhr.upload.addEventListener('onprogress', ()=>{
+        progress.value = xhr.readyState;
+    })
+
+    xhr.upload.addEventListener('onloadend', ()=>{
+        alert('Загрузка завершена');
+    })
+
+    xhr.send(formData);
+}) */
+
+
+
+
+
 
 /* form.addEventListener('submit', (e) => {
     e.preventDefault;
