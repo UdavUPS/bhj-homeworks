@@ -24,14 +24,24 @@ form.addEventListener('submit', (e) => {
     xhr.send(FormD);
 
 
-    let psrsXHR = JSON.parse(xhr.responseText);
-    saveStatus (psrsXHR.success, psrsXHR.user_id);
+    window.setTimeout(()=>{
+      let psrsXHR = JSON.parse(xhr.responseText);
+      saveStatus (psrsXHR.success, psrsXHR.user_id);
+
+
+/*     console.log(xhr);
+    console.log(xhr.responseText); */
+
+
+    }, 5000)
+/*     let psrsXHR = JSON.parse(xhr.responseText);
+    saveStatus (psrsXHR.success, psrsXHR.user_id); */
 
 
 
 
-    console.log(xhr);
-    console.log(xhr.responseText);
+  /*   console.log(xhr);
+    console.log(xhr.responseText); */
     //saveStatus (userStatus, userId);
 
 
