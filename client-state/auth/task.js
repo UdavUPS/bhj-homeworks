@@ -3,6 +3,7 @@ const btn = document.querySelector('.btn');
 /* let FormD = new FormData(form); */
 const welcomeWindow = document.getElementById('welcome');
 const userName = document.getElementById('user_id');
+const signin = document.querySelector('.signin');
 let userId;
 let userStatus;
 
@@ -24,16 +25,26 @@ form.addEventListener('submit', (e) => {
     xhr.send(FormD);
 
 
-    window.setTimeout(()=>{
+
+    xhr.onload = () => {
       let psrsXHR = JSON.parse(xhr.responseText);
       saveStatus (psrsXHR.success, psrsXHR.user_id);
+      console.log(xhr.responseText);
+      if (xhr.responseText !== '{"success":false}') {
+        signin.classList.remove('signin_active');
+      }
+    }
+
+    /* window.setTimeout(()=>{
+      let psrsXHR = JSON.parse(xhr.responseText);
+      saveStatus (psrsXHR.success, psrsXHR.user_id); */
 
 
 /*     console.log(xhr);
     console.log(xhr.responseText); */
 
 
-    }, 5000)
+    /* }, 0) */
 /*     let psrsXHR = JSON.parse(xhr.responseText);
     saveStatus (psrsXHR.success, psrsXHR.user_id); */
 
