@@ -29,7 +29,7 @@ form.addEventListener('submit', (e) => {
     xhr.onload = () => {
       let psrsXHR = JSON.parse(xhr.responseText);
       saveStatus (psrsXHR.success, psrsXHR.user_id);
-      console.log(xhr.responseText);
+      /* console.log(xhr.responseText); */
       if (xhr.responseText !== '{"success":false}') {
         signin.classList.remove('signin_active');
       }
